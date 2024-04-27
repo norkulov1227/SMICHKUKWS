@@ -105,9 +105,18 @@ class Order(BaseModel):
           return self.name
 
 
+class TestModel(BaseModel):
+     image=models.ImageField(upload_to='images/', null=True)
+     name = models.CharField(max_length=50)
+     description= models.TextField()
+
+     def __str__(self):
+          return self.name
+
 class Blog(BaseModel):
      title = models.CharField(max_length=150)
      body = RichTextField()
      description = models.TextField()
      views = models.IntegerField(default=0)
      image = models.ImageField(upload_to='news/')
+
