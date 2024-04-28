@@ -14,7 +14,7 @@ class AboutAdmin(admin.ModelAdmin):
     def display_image(self, obj):
         return mark_safe('<img src="%s" width="20" />' % obj.icon.url)
     
-    list_display.short_description='Image',
+    display_image.short_description='Image',
 
 
 @admin.register(Contact)
@@ -45,9 +45,9 @@ class OrderAdmin(admin.ModelAdmin):
 class ProductAdmin(admin.ModelAdmin):
     inlines=[ProductImageInline, ]
     list_display=('id', 'title', 'price', 'percentage', 'created_at', 'is_active', )
-    list_display_links=('title', 'price', 'percentage',)
+    list_display_links=('title',)
     readonly_fields=('id',)
-    list_editable=('percentage', 'price', 'is_active',)
+    list_editable=( 'is_active',)
     search_fields=('created_at', 'price',)
 
 
@@ -59,7 +59,7 @@ class TestModelAdmin(admin.ModelAdmin):
     def display_image(self, obj):
         return mark_safe('<img src="%s" width="20" />' % obj.icon.url)
     
-    list_display.short_description='Image',
+    display_image.short_description='Image',
 
 @admin.register(Blog)
 class BlogAdmin(admin.ModelAdmin):
