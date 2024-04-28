@@ -39,7 +39,7 @@ class About(BaseModel):
 
 
      def __str__(self):
-          return self.title
+          return str(self.title)
 
      
 class Contact(BaseModel):
@@ -50,7 +50,7 @@ class Contact(BaseModel):
 
 
      def __str__(self):
-          return self.name
+          return str(self.name)
 
 
 
@@ -62,7 +62,7 @@ class Product(BaseModel):
 
 
      def __str__(self):
-          return self.title
+          return str(self.title)
 
      
      @property
@@ -79,7 +79,7 @@ class ProductImage(BaseModel):
 
 
      def __str__(self):
-          return self.product
+          return str(self.product)
 
      
 class Order(BaseModel):
@@ -102,7 +102,7 @@ class Order(BaseModel):
 
 
      def __str__(self):
-          return self.name
+          return str(self.name)
 
 
 class TestModel(BaseModel):
@@ -111,7 +111,7 @@ class TestModel(BaseModel):
      description= models.TextField()
 
      def __str__(self):
-          return self.name
+          return str(self.name)
 
 class Blog(BaseModel):
      title = models.CharField(max_length=150)
