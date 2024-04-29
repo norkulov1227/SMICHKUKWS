@@ -4,6 +4,7 @@ from django.utils.html import mark_safe
 
 # Register your models here.
 
+
 @admin.register(About)
 class AboutAdmin(admin.ModelAdmin):
     search_fields=('id', 'title',)
@@ -17,12 +18,12 @@ class AboutAdmin(admin.ModelAdmin):
     display_image.short_description='Image',
 
 
+
 @admin.register(Contact)
 class ContactAdmin(admin.ModelAdmin):
     list_display=('id', 'name', 'email', 'subject', 'created_at',)
     list_display_links=('id', 'name', 'email',)
     readonly_fields=('id',)
-
 
 
 
@@ -39,8 +40,6 @@ class OrderAdmin(admin.ModelAdmin):
     
 
 
-
-
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
     inlines=[ProductImageInline, ]
@@ -49,6 +48,7 @@ class ProductAdmin(admin.ModelAdmin):
     readonly_fields=('id',)
     list_editable=( 'is_active',)
     search_fields=('created_at', 'price',)
+
 
 
 @admin.register(TestModel)
@@ -60,6 +60,8 @@ class TestModelAdmin(admin.ModelAdmin):
         return mark_safe('<img src="%s" width="20" />' % obj.icon.url)
     
     display_image.short_description='Image',
+
+
 
 @admin.register(Blog)
 class BlogAdmin(admin.ModelAdmin):
