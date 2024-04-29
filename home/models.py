@@ -113,6 +113,8 @@ class TestModel(BaseModel):
      def __str__(self):
           return self.name
 
+          
+
 class Blog(BaseModel):
      title = models.CharField(max_length=150)
      body = RichTextField()
