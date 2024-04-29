@@ -30,7 +30,7 @@ INSTALLED_APPS = [
     'home',
 
     # installed
-    'djrichtextfield',
+    'ckeditor',
 
 
 ]
