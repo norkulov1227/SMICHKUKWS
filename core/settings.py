@@ -35,6 +35,10 @@ INSTALLED_APPS = [
     # my app
     'home',
 
+    # installed
+    'djrichtextfield',
+
+
 ]
 
 MIDDLEWARE = [

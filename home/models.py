@@ -1,5 +1,5 @@
 from django.db import models
-from djrichtextfield.models import RichTextField
+from ckeditor.fields import RichTextField
 from uuid import uuid4
 
 
