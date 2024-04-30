@@ -27,6 +27,12 @@ class ContactAdmin(admin.ModelAdmin):
 
 
 
+
+class ProductImageInline(admin.TabularInline):
+    # readonly_fields=('id', 'image')
+    model=ProductImage
+    extra = 1
+
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
     
