@@ -31,29 +31,24 @@
             <br>
             <section class='tabs-content'>
               <article>
-                <h4>Lorem ipsum dolor sit amet, consectetur adipisicing.</h4>
+                <h1 style="text-align: center; font-weight: bold;">{{ detail.title }}</h1> <br> <br> <br>
+                <h6><a href="{% url 'blog' %}" class="btn btn-primary" style="margin: 0 0 30px 0;">Back to news</a></h6>
 
-                <p><i class="fa fa-user"></i> John Doe &nbsp;|&nbsp; <i class="fa fa-calendar"></i> 27.07.2020 10:10 &nbsp;|&nbsp; <i class="fa fa-comments"></i>  15 comments</p>
+                <p>
+                    <h6><i class="fa fa-calendar"></i> Date: {{ detail.created_at }}</h6>
+                    <h6><i class="fa fa-eye"></i> Views: {{ detail.views }}</h6>
+                </p>
 
-                <div><img src="{% static 'assets/images/blog-image-fullscren-1-1920x700.jpg' %}" alt=""></div>
-
+                <div><img src="{{ detail.image.url }}" alt=""></div>
                 <br>
 
-                <p>Phasellus convallis mauris sed elementum vulputate. Donec posuere leo sed dui eleifend hendrerit. Sed suscipit suscipit erat, sed vehicula ligula. Aliquam ut sem fermentum sem tincidunt lacinia gravida aliquam nunc. Morbi quis erat imperdiet, molestie nunc ut, accumsan diam.</p>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam nihil magnam magni perferendis sit, inventore maxime architecto ab officia illum vitae veritatis asperiores laborum quaerat ratione omnis, possimus, sunt quae?</p>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus amet, corporis corrupti quod illum id autem assumenda nostrum quo, odio libero dolorum. Expedita, enim non voluptatibus qui veritatis iste ad? Voluptates natus dolor, minus culpa magnam! Iusto blanditiis beatae laudantium.</p>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci dolor nemo optio facere impedit fugiat obcaecati blanditiis tempora inventore sapiente beatae aspernatur vitae fuga totam possimus eveniet, praesentium maiores! Dolorum illum voluptates ipsum aspernatur explicabo numquam, aliquid a amet, deleniti eos suscipit totam laudantium excepturi voluptatum fugiat eum nesciunt minus iste, expedita provident temporibus, alias possimus veritatis aut fugit? Eaque.</p>
-
+                <p>{{ detail.body|safe }}</p>
               </article>
             </section>
 
             <br>
             <br>
             <br>
-        
         </div>
     </section>
     <!-- ***** Blog End ***** -->

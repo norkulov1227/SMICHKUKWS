@@ -37,6 +37,7 @@ INSTALLED_APPS = [
 
     # installed
     'djrichtextfield',
+    'ckeditor',
 
 
 ]
@@ -64,10 +65,22 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'home.context_processor.index_processor',
+
             ],
         },
     },
 ]
+
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+        'height': 800,
+        'width': 500,
+    },
+}
+
 
 
 DJRICHTEXTFIELD_CONFIG = {

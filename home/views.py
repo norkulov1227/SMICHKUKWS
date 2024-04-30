@@ -1,6 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View
+from django.contrib import messages
 from .models import Product, Contact, Blog, About
+from django.db.models import Q
 
 class HomePageView(View):
      def get(self, request):
@@ -42,6 +44,20 @@ class BlogView(View):
 
 
 
+class BlogDetailView(View):
+    def get(self, request, uuid):
+        detail = get_object_or_404(Blog, id=uuid)
+        detail.views+=1
+        detail.save()
+        
+        context = {
+            'detail': detail,
+        }
+
+        return render(request, 'blog-details.html', context)
+
+
+
 class AboutView(View):
     def get(self, request):
         about = About.objects.all()
@@ -53,11 +69,18 @@ class AboutView(View):
 
 
 
-class BlogDetailView(View):
+class SearchView(View):
     def get(self, request):
-        detail = Blog.objects.all().order_by('?')[:3]
-        context = {
-            'detail': detail,
-        }
+        query = request.GET.get('search')
+        if not query:
+            messages.error(request, "Bunday mahsulot topilmadi!")
+            return redirect('index')
 
-        return render(request, 'blog-details.html', context)
+        searchs = Blog.objects.all().filter(Q(title__icontains = query) | Q(description__icontains = query))
+
+
+        context = {
+            'searchs': searchs,
+        }
+        messages.success(request, "Siz qidirgan mahsulotlar.")
+        return render(request, 'search.html', context)

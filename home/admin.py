@@ -27,17 +27,20 @@ class ContactAdmin(admin.ModelAdmin):
 
 
 
-class ProductImageInline(admin.StackedInline):
-    readonly_fields=('updated_at', )
-    model=ProductImage
-    extra = 1
-
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
     
     list_display=('id', 'product', 'quantity', 'name', 'phone',)
     list_display_links=('id', 'product', 'quantity', )
+    readonly_fields=('id',)
     
+
+
+
+class ProductImageInline(admin.StackedInline):
+    readonly_fields=('updated_at', )
+    model=ProductImage
+    extra=1
 
 
 @admin.register(Product)
@@ -53,8 +56,9 @@ class ProductAdmin(admin.ModelAdmin):
 
 @admin.register(TestModel)
 class TestModelAdmin(admin.ModelAdmin):
-    list_display=('id' , 'name', )
+    list_display=('id', 'name', )
     search_fields=('name',)
+    readonly_fields=('id',)
 
     def display_image(self, obj):
         return mark_safe('<img src="%s" width="20" />' % obj.icon.url)
@@ -65,7 +69,8 @@ class TestModelAdmin(admin.ModelAdmin):
 
 @admin.register(Blog)
 class BlogAdmin(admin.ModelAdmin):
-    list_display=('id', 'title',)
+    list_display=('id', 'title', 'views')
     list_display_links=('id', 'title',)
     search_fields=('title', )
+    readonly_fields=('id', 'views',)
 

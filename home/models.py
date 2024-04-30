@@ -35,7 +35,7 @@ PAYMENT_CHOICES=(
 
 class About(BaseModel):
      title = models.CharField(max_length=100)
-     body = RichTextField()
+     body = RichTextField(blank=False, null=False)
      image = models.ImageField(upload_to='images/')
      menu = models.CharField(max_length=10, choices=CHOICE_ABOUT)
 
@@ -119,7 +119,7 @@ class TestModel(BaseModel):
 
 class Blog(BaseModel):
      title = models.CharField(max_length=150)
-     body = RichTextField()
+     body = RichTextField(blank=False, null=False)
      description = models.TextField()
      views = models.IntegerField(default=0)
      image = models.ImageField(upload_to='news/')

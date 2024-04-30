@@ -45,14 +45,14 @@
           <div class="container">
                <div class="row">
                     <div class="col-12">
-                              <nav class="main-nav">
+                              <nav class="main-nav navbar-dark bg-dark ">
                               <!-- ***** Logo Start ***** -->
                                    <a href="/" class="logo">Food Store <em> Website</em></a>
                                    <!-- ***** Logo End ***** -->
                                    <!-- ***** Menu Start ***** -->
                                    <ul class="nav">
-                                        <li><a href="/" class="active">Home</a></li>
-                                        <li><a href="products.html">Products</a></li>
+                                        <li><a href="{% url 'index' %}" class="active">Home</a></li>
+                                        <li><a href="/">Products</a></li>
                                         <li><a href="{% url 'blog' %}">Blog</a></li>
                                         <li><a href="{% url 'about' %}">About Us</a></li>
                                         <li><a href="{% url 'contact' %}">Contact</a></li> 
@@ -71,6 +71,19 @@
 
 
     {% block content %}
+
+
+    
+
+    {% if messages %}
+          <ul class="messages">
+               {% for message in messages %}
+               <li{% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>{{ message }}</li>
+               {% endfor %}
+          </ul>
+     {% endif %}
+
+     
       
     {% endblock content %}
 
