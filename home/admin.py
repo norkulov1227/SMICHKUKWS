@@ -26,8 +26,8 @@ class ContactAdmin(admin.ModelAdmin):
 
 
 
-class ProductImageInline(admin.StackedInline):
-    readonly_fields=('updated_at', )
+class ProductImageInline(admin.TabularInline):
+    # readonly_fields=('id', 'image')
     model=ProductImage
     extra = 1
 
