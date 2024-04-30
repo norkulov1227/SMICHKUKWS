@@ -1,5 +1,7 @@
 from pathlib import Path
 import os
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -13,7 +15,10 @@ SECRET_KEY = 'django-insecure--ntop9^yb+y2&64nd3jdsw@)i&x3a(0!kw#rjcqwa31u&gyvad
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+
+CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1:8000', 'http://localhost']
+    
 
 
 # Application definition
@@ -25,6 +30,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
 
     # my app
     'home',
@@ -58,11 +64,22 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-     
+                'home.context_processor.index_processor',
+
             ],
         },
     },
 ]
+
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+        'height': 800,
+        'width': 500,
+    },
+}
+
 
 
 DJRICHTEXTFIELD_CONFIG = {
