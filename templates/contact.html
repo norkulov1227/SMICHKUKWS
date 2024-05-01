@@ -6,8 +6,27 @@
 {% endblock title %}
 
 
-{% block content %}
+{% block menu %}
+    
+<!-- ***** Logo Start ***** -->
+  <a href="/" class="logo">Food Store <em> Website</em></a>
+  <!-- ***** Logo End ***** -->
+  <!-- ***** Menu Start ***** -->
+  <ul class="nav">
 
+      <li><a href="{% url 'index' %}" >Home</a></li>
+      <li><a href="{% url 'products' %}" >Products</a></li>
+      <li><a href="{% url 'blog' %}" >Blog</a></li>
+      <li><a href="{% url 'about' %}" >About Us</a></li>
+      <li><a href="{% url 'contact' %}" class="active">Contact</a></li>  
+
+  </ul>        
+<!-- ***** Menu End ***** -->
+  
+{% endblock menu %}
+
+
+{% block content %}
 
 
   <section class="section section-bg" id="call-to-action" style="background-image: url ('{% static "assets/images/banner-image-1-1920x500.jpg" %}') ">

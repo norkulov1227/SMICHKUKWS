@@ -6,6 +6,26 @@
 {% endblock title %}
 
 
+{% block menu %}
+
+        <!-- ***** Logo Start ***** -->
+        <a href="/" class="logo">Food Store <em> Website</em></a>
+        <!-- ***** Logo End ***** -->
+        <!-- ***** Menu Start ***** -->
+        <ul class="nav">
+
+            <li><a href="{% url 'index' %}" >Home</a></li>
+            <li><a href="{% url 'products' %}" >Products</a></li>
+            <li><a href="{% url 'blog' %}" class="active">Blog</a></li>
+            <li><a href="{% url 'about' %}">About Us</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>  
+
+        </ul>        
+        <!-- ***** Menu End ***** -->
+
+{% endblock menu %}
+
+
 {% block content %}
 
 
