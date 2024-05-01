@@ -42,12 +42,14 @@
                         <div class="col-lg-4">
                             <div class="trainer-item">
                                 <div class="image-thumb">
-                                    <img src="{{ each_product.images.first.image.url }}" alt="image">
+
+                                    <img src="{{ each_product.images.first.image.url }}" alt="imagen">
+                                    
                                 </div>
                                 <div class="down-content">
                                     <span>
                                         {% if each_product.percentage %}
-                                            <del>{{ each_product.price }}so'm</del> <sup>$</sup>{{ each_product.get_new_price }}so'm
+                                            <del>{{ each_product.price }}so'm</del> <br> {{ each_product.get_new_price }}so'm
                                         {% else %}
                                             {{ each_product.price }}so'm
                                         {% endif %}
@@ -181,46 +183,37 @@
                     </div>
                     <div class="col-lg-6">
                          <ul class="features-items">
-                              <li class="feature-item">
-                                   <div class="left-icon">
-                                        <img src="{% static 'assets/images/features-first-icon.png' %}" alt="First One">
-                                   </div>
-                                   <div class="right-content">
-                                        <h4>John Doe</h4>
-                                        <p><em>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta numquam maxime voluptatibus, impedit sed! Necessitatibus repellendus sed deleniti id et!"</em></p>
-                                   </div>
-                              </li>
-                              <li class="feature-item">
-                                   <div class="left-icon">
-                                        <img src="{% static 'assets/images/features-first-icon.png' %}" alt="second one">
-                                   </div>
-                                   <div class="right-content">
-                                        <h4>John Doe</h4>
-                                        <p><em>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta numquam maxime voluptatibus, impedit sed! Necessitatibus repellendus sed deleniti id et!"</em></p>
-                                   </div>
-                              </li>
+                              {% for each_sharh in random_four_testimonials %}
+                                   {% if forloop.counter <= 2 %}
+                                        <li class="feature-item">
+                                             <div class="left-icon">
+                                                  <img src="{{ each_sharh.image.url }}" alt="First One">
+                                             </div>
+                                             <div class="right-content">
+                                                  <h4>{{ each_sharh.name }}</h4>
+                                                  <p><em>"{{ each_sharh.description|slice:50 }}..."</em></p>
+                                             </div>
+                                        </li>
+                                        
+                                   {% endif %}
+                              {% endfor %}
                          </ul>
                     </div>
                     <div class="col-lg-6">
                          <ul class="features-items">
-                              <li class="feature-item">
-                                   <div class="left-icon">
-                                        <img src="{% static 'assets/images/features-first-icon.png' %}" alt="fourth muscle">
-                                   </div>
-                                   <div class="right-content">
-                                        <h4>John Doe</h4>
-                                        <p><em>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta numquam maxime voluptatibus, impedit sed! Necessitatibus repellendus sed deleniti id et!"</em></p>
-                                   </div>
-                              </li>
-                              <li class="feature-item">
-                                   <div class="left-icon">
-                                        <img src="{% static 'assets/images/features-first-icon.png' %}" alt="training fifth">
-                                   </div>
-                                   <div class="right-content">
-                                        <h4>John Doe</h4>
-                                        <p><em>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta numquam maxime voluptatibus, impedit sed! Necessitatibus repellendus sed deleniti id et!"</em></p>
-                                   </div>
-                              </li>
+                              {% for each_sharh in random_four_testimonials %}
+                              {% if forloop.counter >= 3 %}
+                                   <li class="feature-item">
+                                        <div class="left-icon">
+                                             <img src="{{ each_sharh.image.url }}" alt="First One">
+                                        </div>
+                                        <div class="right-content">
+                                             <h4>{{ each_sharh.name }}</h4>
+                                             <p><em>"{{ each_sharh.description }}"</em></p>
+                                        </div>
+                                   </li>
+                              {% endif %}
+                         {% endfor %}
                          </ul>
                     </div>
                </div>
@@ -228,7 +221,7 @@
                <br>
 
                <div class="main-button text-center">
-                    <a href="testimonials.html">Read More</a>
+                    <a href="{% url 'sharhlar' %}">Read More</a>
                </div>
           </div>
      </section>

@@ -51,7 +51,9 @@
                 <div class="carousel-inner">
                   {% for rasm in product.images.all %}
                   <div class="carousel-item {% if forloop.counter == 1 %} active {% endif %}">
+                    {% if rasm %}
                     <img class="d-block w-100" src="{{ rasm.image.url }}" alt="{{ forloop.counter }} slide">
+                    {% endif %}
                   </div>
                   {% endfor %}
                  
@@ -73,17 +75,9 @@
               <div class="contact-form">
                 <form action="#" id="contact">
                   <div class="form-group">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi ratione molestias maxime odio!</p>
+                    <p>  {{ product.description }}  </p>
                   </div>
                   
-                  <label>Extra 1</label>
-
-                  <select>
-                      <option value="0">Extra A</option>
-                      <option value="1">Extra B</option>
-                      <option value="2">Extra C</option>
-                  </select>
-
                   <div class="row">
                     <div class="col-md-6">
                       <label>Quantity</label>
@@ -93,7 +87,7 @@
                   </div>
                   
                   <div class="main-button">
-                      <a href="checkout.html">Add to cart</a>
+                      <a href="{% url 'checkout' product.id %}">Add to cart</a>
                   </div>
                 </form>
               </div>

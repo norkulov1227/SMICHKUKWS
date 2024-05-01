@@ -44,13 +44,13 @@
                             <div class="down-content">
                                 <span>
                                     {% if each_product.percentage %}
-                                    <del><sup>$</sup>{{ each_product.price }}</del> <sup>$</sup>{{ each_product.get_new_price }}
+                                    <del>{{ each_product.price }}so'm</del> <br>{{ each_product.get_new_price }}so'm
                                     {% else %}
-                                        <sup>$</sup>{{ each_product.price }}
+                                        {{ each_product.price }}so'm
                                     {% endif %}
                                 </span>
 
-                                <h4>{{ each_product.title }}</h4>
+                                <a href="{% url 'detail' each_product.id %}"><h4>{{ each_product.title }}</h4></a>
 
                                 <p> {{ each_product.description }} </p>
 

@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View
 
 from django.contrib import messages
-from .models import Product, Contact, Blog, About
+from .models import Product, Contact, Blog, About, TestModel
 from django.db.models import Q
 
 from .models import Product, About
@@ -11,10 +11,12 @@ from django.core.paginator import Paginator
 
 class HomePageView(View):
      def get(self, request ):
+          random_four_testimonials= TestModel.objects.filter(is_active = True).order_by('?')[:4]
           products = Product.objects.filter(is_active=True)
           random_three_products=products.order_by('?')[:3]
           conttext = {
                'product': products,
+               'random_four_testimonials':random_four_testimonials,
                'random_three_products':random_three_products,
           }
           return render(request, 'index.html', conttext)
@@ -135,4 +137,25 @@ class AboutView(View):
         
 
         return render(request, 'about.html', context)
+
+
+
+class SharhlarView(View):
+    def get(self, request):
+        all_testimonials = TestModel.objects.filter(is_active=True)
+
+        context = {
+            'all_testimonials':all_testimonials
+        }
+
+        return render(request, 'testimonials.html', context) 
+
+class CheckoutView(View):
+    def get(self, request, uuid):
+        product=Product.objects.filter(is_active = True, id=uuid).first()
+        context= {
+            'product':product,
+        }
+
+        return render(request, 'checkout.html', context)
 
