@@ -20,24 +20,21 @@
 {% block content %}
 
 
-<div class="container">
-
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    
-    <h1><b>Search results</b></h1>
-    <br>
-    <hr>
-    <br>
-</div>
-    
+    <section class="section section-bg" id="schedule" style="background-image: url('{% static "assets/images/about-fullscreen-1-1920x700.jpg" %}')">
+        
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class=" col-lg-6 offset-lg-3 " style="color:initial">
+            <h1>Search Results</h1>
+            <img style="padding: 0 0 0 120px;" src="{% static 'assets/images/line-dec.png' %}" alt="">
+        </div>
+    </section>
 
 {% for yangi in searchs %}
 
