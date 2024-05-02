@@ -54,7 +54,7 @@
                 <h6><a href="{% url 'blog' %}" class="btn btn-primary" style="margin: 0 0 30px 0;">Back to news</a></h6>
 
                 <p>
-                    <h6><i class="fa fa-calendar"></i> Date: {{ detail.created_at }}</h6>
+                    <h6><i class="fa fa-calendar"></i> Date: {{ detail.created_at |date:'m.d.y/H:i' }}</h6>
                     <h6><i class="fa fa-eye"></i> Views: {{ detail.views }}</h6>
                 </p>
 

@@ -149,7 +149,7 @@
                     <img src="{{ blokk.image.url }}" alt="rasm bor bera">
                     <h4>{{ blokk.title }}</h4>
 
-                    <p><i class="fa fa-calendar"></i> {{ blokk.created_at }} &nbsp;|&nbsp; <i class="fa fa-eye"></i> {{ blokk.views }} </p>
+                    <p><i class="fa fa-calendar"></i> {{ blokk.created_at |date:'m.d.y/H:i' }} &nbsp;|&nbsp; <i class="fa fa-eye"></i> {{ blokk.views }} </p>
                     <p>{{ blokk.description }}</p>
                     <div class="main-button">
                          <a href="{% url 'blog-detail' blokk.id %}">Continue Reading</a>
