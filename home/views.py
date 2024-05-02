@@ -2,10 +2,9 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View
 
 from django.contrib import messages
-from .models import Product, Contact, Blog, About, TestModel
+from .models import Product, Contact, Blog, About, TestModel, Order
 from django.db.models import Q
-
-from .models import Product, About
+from .forms import OrderForm
 from django.core.paginator import Paginator
 
 
@@ -119,7 +118,7 @@ class AllProductView(View):
 
 
 class ProductDetailView(View):
-     def get(self, request, uuid):
+    def get(self, request, uuid):
         product=Product.objects.filter(is_active = True, id=uuid).first()
 
         context = {
@@ -127,6 +126,17 @@ class ProductDetailView(View):
         }
         
         return render(request, 'product-details.html', context)
+
+    def post(self, request, uuid):
+        quantity = request.POST.get('quantity')
+        print(quantity)
+        product = Product.objects.filter(id=uuid).first()
+        order = Order.objects.create(
+            product=product,
+            quantity=quantity,
+        )
+
+        return redirect('checkout', uuid=order.id)
 
 class AboutView(View):
     def get(self, request):
@@ -156,10 +166,24 @@ class SharhlarView(View):
 
 class CheckoutView(View):
     def get(self, request, uuid):
-        product=Product.objects.filter(is_active = True, id=uuid).first()
-        context= {
-            'product':product,
-        }
+        order = Order.objects.filter(id=uuid).first()
+        form = OrderForm()
 
+        context = {
+            'order': order,
+            'form': form
+        }
         return render(request, 'checkout.html', context)
+
+    def post(self, request, uuid):
+        order = Order.objects.filter(id=uuid).first()
+        form = OrderForm(request.POST, instance=order)
+        if form.is_valid():
+            form.save()
+            order.status = True
+            order.save()
+            print("saqlandi")
+
+            return redirect('index')
+        return redirect('checkout', uuid=order.id)
 
