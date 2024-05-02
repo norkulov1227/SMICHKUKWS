@@ -143,9 +143,11 @@ class AboutView(View):
 class SharhlarView(View):
     def get(self, request):
         all_testimonials = TestModel.objects.filter(is_active=True)
-
+        numberrr=int(all_testimonials.count()/2)
+        print(numberrr)
         context = {
-            'all_testimonials':all_testimonials
+            'all_testimonials':all_testimonials,
+            'numberrr':numberrr
         }
 
         return render(request, 'testimonials.html', context) 

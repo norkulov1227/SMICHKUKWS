@@ -17,7 +17,7 @@
                         <br>
                         <br>
                         <h2>Read our <em>Testimonials</em></h2>
-                        <p>Hello everyone, you can read all reviews about our foods  </p>
+                        <p>Hello everyone, you can read all reviews about our foods by famous people </p>
                     </div>
                 </div>
             </div>
@@ -33,15 +33,15 @@
             <div class="row">
                 <div class="col-lg-6">
                     <ul class="features-items">
-                        {% for each_sharh in all_testimonials %}
-                            {% if forloop.counter <= 3 %}
+                        {% for each_test in all_testimonials %}
+                            {% if forloop.counter <= numberrr %}
                                 <li class="feature-item">
                                     <div class="left-icon">
-                                        <img src="{{ each_sharh.image.url }}" alt="First One">
+                                        <img src="{{ each_test.image.url }}" alt="First One">
                                     </div>
                                     <div class="right-content">
-                                        <h4>{{ each_sharh.name }}</h4>
-                                        <p><em>"{{ each_sharh.description }}"</em></p>
+                                        <h4>{{ each_test.name }}</h4>
+                                        <p><em>{{ each_test.description }}</em></p>
                                     </div>
                                 </li>
                             {% endif %}
@@ -51,21 +51,20 @@
                 </div>
                 <div class="col-lg-6">
                     <ul class="features-items">
-                        
-
-                        {% for each_sharh in all_testimonials %}
-                            {% if forloop.counter > 3 %}
+                        {% for each_test in all_testimonials %}
+                            {% if forloop.counter > numberrr %}
                                 <li class="feature-item">
                                     <div class="left-icon">
-                                        <img src="{{ each_sharh.image.url }}" alt="First One">
+                                        <img src="{{ each_test.image.url }}" alt="First One">
                                     </div>
                                     <div class="right-content">
-                                        <h4>{{ each_sharh.name }}</h4>
-                                        <p><em>"{{ each_sharh.description }}"</em></p>
+                                        <h4>{{ each_test.name }}</h4>
+                                        <p><em>{{ each_test.description }}</em></p>
                                     </div>
                                 </li>
                             {% endif %}
                         {% endfor %}
+                        
                     </ul>
                 </div>
             </div>

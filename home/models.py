@@ -1,7 +1,7 @@
 from django.db import models
 from ckeditor.fields import RichTextField
 from uuid import uuid4
-
+from PIL import Image
 
 
 class BaseModel(models.Model):
@@ -114,6 +114,12 @@ class TestModel(BaseModel):
 
      def __str__(self):
           return str(self.name)
+     def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        img = Image.open(self.image.path)
+        o_size = (100, 100)
+        img.thumbnail(o_size)
+        img.save(self.image.path, quality=50)
 
 
 class Blog(BaseModel):
