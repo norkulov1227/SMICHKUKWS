@@ -136,43 +136,26 @@
          <div class="row" id="tabs">
            <div class="col-lg-4">
              <ul>
-               <li><a href='#tabs-1'>Lorem ipsum dolor sit amet, consectetur adipisicing.</a></li>
-               <li><a href='#tabs-2'>Aspernatur excepturi magni, placeat rerum nobis magnam libero! Soluta.</a></li>
-               <li><a href='#tabs-3'>Sunt hic recusandae vitae explicabo quidem laudantium corrupti non adipisci nihil.</a></li>
+               {% for bl in blok %}
+                    <li><a href='#tabs-{{ forloop.counter }}'>{{ bl.title }}</a></li>
+               {% endfor %}
                <div class="main-rounded-button"><a href="{% url 'blog' %}">Read More</a></div>
              </ul>
            </div>
            <div class="col-lg-8">
              <section class='tabs-content'>
-               <article id='tabs-1'>
-                 <img src="{% static 'assets/images/blog-image-1-940x460.jpg' %}" alt="">
-                 <h4>Lorem ipsum dolor sit amet, consectetur adipisicing.</h4>
+               {% for blokk in blok %}
+               <article id='tabs-{{ forloop.counter }}'>
+                    <img src="{{ blokk.image.url }}" alt="rasm bor bera">
+                    <h4>{{ blokk.title }}</h4>
 
-                 <p><i class="fa fa-user"></i> John Doe &nbsp;|&nbsp; <i class="fa fa-calendar"></i> 27.07.2020 10:10 &nbsp;|&nbsp; <i class="fa fa-comments"></i>  15 comments</p>
-
-                 <p>Phasellus convallis mauris sed elementum vulputate. Donec posuere leo sed dui eleifend hendrerit. Sed suscipit suscipit erat, sed vehicula ligula. Aliquam ut sem fermentum sem tincidunt lacinia gravida aliquam nunc. Morbi quis erat imperdiet, molestie nunc ut, accumsan diam.</p>
-                 <div class="main-button">
-                     <a href="blog-details.html">Continue Reading</a>
-                 </div>
+                    <p><i class="fa fa-calendar"></i> {{ blokk.created_at }} &nbsp;|&nbsp; <i class="fa fa-eye"></i> {{ blokk.views }} </p>
+                    <p>{{ blokk.description }}</p>
+                    <div class="main-button">
+                         <a href="{% url 'blog-detail' blokk.id %}">Continue Reading</a>
+                    </div>
                </article>
-               <article id='tabs-2'>
-                 <img src="{% static 'assets/images/blog-image-2-940x460.jpg' %}" alt="">
-                 <h4>Aspernatur excepturi magni, placeat rerum nobis magnam libero! Soluta.</h4>
-                 <p><i class="fa fa-user"></i> John Doe &nbsp;|&nbsp; <i class="fa fa-calendar"></i> 27.07.2020 10:10 &nbsp;|&nbsp; <i class="fa fa-comments"></i>  15 comments</p>
-                 <p>Integer dapibus, est vel dapibus mattis, sem mauris luctus leo, ac pulvinar quam tortor a velit. Praesent ultrices erat ante, in ultricies augue ultricies faucibus. Nam tellus nibh, ullamcorper at mattis non, rhoncus sed massa. Cras quis pulvinar eros. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-                 <div class="main-button">
-                     <a href="blog-details.html">Continue Reading</a>
-                 </div>
-               </article>
-               <article id='tabs-3'>
-                 <img src="{% static 'assets/images/blog-image-3-940x460.jpg' %}" alt="">
-                 <h4>Sunt hic recusandae vitae explicabo quidem laudantium corrupti non adipisci nihil.</h4>
-                 <p><i class="fa fa-user"></i> John Doe &nbsp;|&nbsp; <i class="fa fa-calendar"></i> 27.07.2020 10:10 &nbsp;|&nbsp; <i class="fa fa-comments"></i>  15 comments</p>
-                 <p>Fusce laoreet malesuada rhoncus. Donec ultricies diam tortor, id auctor neque posuere sit amet. Aliquam pharetra, augue vel cursus porta, nisi tortor vulputate sapien, id scelerisque felis magna id felis. Proin neque metus, pellentesque pharetra semper vel, accumsan a neque.</p>
-                 <div class="main-button">
-                     <a href="blog-details.html">Continue Reading</a>
-                 </div>
-               </article>
+               {% endfor %}
              </section>
            </div>
          </div>
