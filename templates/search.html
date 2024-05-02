@@ -39,23 +39,25 @@
         <br>
         <br>
         <br>
-        <div class=" col-lg-6 offset-lg-3 " style="color:initial">
-            <h1>Search Results</h1>
-            <img style="padding: 0 0 0 120px;" src="{% static 'assets/images/line-dec.png' %}" alt="">
+        <div class=" col-lg-6 offset-lg-3 " style="text-align: center; color: white">
+            <h1 >Search Results</h1>
+            <img src="{% static 'assets/images/line-dec.png' %}" alt="">
         </div>
     </section>
 
 {% for yangi in searchs %}
 
+    <br>
+    <br>
+    <br>
+    <br>
     <div class="container">
         <a href="{% url 'blog-detail' yangi.id %}">
             <h3><b>{{ yangi.title }}</b></h3>
             <img src="{{ yangi.image.url }}" alt="image" style="width: 700px; height: 500px;">
         </a>
-        <b><p>Date: {{ yangi.created_at|date:'d-m-Y H:i' }} | Views: {{ yangi.views }}</p></b>
+        <b><p><i class="fa fa-calendar"></i> Date: {{ yangi.created_at |date:'m.d.y/H:i' }} | Views: {{ yangi.views }}</p></b>
         <hr>
-        <br>
-        <br>
     </div>
 
 {% endfor %}
