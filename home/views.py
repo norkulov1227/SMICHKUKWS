@@ -13,9 +13,11 @@ class HomePageView(View):
      def get(self, request ):
           products = Product.objects.filter(is_active=True)
           random_three_products=products.order_by('?')[:3]
+          blok = Blog.objects.all().order_by('?')[:3]
           conttext = {
                'product': products,
                'random_three_products':random_three_products,
+               'blok': blok,
           }
           return render(request, 'index.html', conttext)
 
@@ -79,7 +81,7 @@ class AboutView(View):
 
 class SearchView(View):
     def get(self, request):
-        query = request.GET.get('search')
+        query = request.GET.get('q')
         if not query:
             messages.error(request, "Bunday mahsulot topilmadi!")
             return redirect('index')

@@ -6,50 +6,58 @@
 {% endblock title %}
 
 
-
-<!-- 
 {% block menu %}
-    <a href="{% url 'home:home' %}" class="nav-item nav-link  ">Home</a>
-    {% for category in kategoriyalar %}
-        <a href="{% url 'home:category' category.slug %}" class="nav-item nav-link" >{{ category.name }}</a>
-    {% endfor %}
 
-    <a href="{% url 'home:contact' %}" class="nav-item nav-link">Contact Us</a>
-{% endblock menu %} -->
+<!-- ***** Logo Start ***** -->
+    <a href="/" class="logo">Food Store <em> Website</em></a>
+    <!-- ***** Logo End ***** -->
+    <!-- ***** Menu Start ***** -->
+    <ul class="nav">
+
+        <li><a href="{% url 'index' %}">Home</a></li>
+        <li><a href="{% url 'products' %}">Products</a></li>
+        <li><a href="{% url 'blog' %}">Blog</a></li>
+        <li><a href="{% url 'about' %}">About Us</a></li>
+        <li><a href="{% url 'contact' %}">Contact</a></li>  
+
+    </ul>        
+<!-- ***** Menu End ***** -->
+
+{% endblock menu %}
+
 
 {% block content %}
 
 
-<div class="container">
-
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    
-    <h1><b>Search results</b></h1>
-    <br>
-    <hr>
-    <br>
-</div>
-    
+    <section class="section section-bg" id="schedule" style="background-image: url('{% static "assets/images/about-fullscreen-1-1920x700.jpg" %}')">
+        
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class=" col-lg-6 offset-lg-3 " style="text-align: center; color: white">
+            <h1 >Search Results</h1>
+            <img src="{% static 'assets/images/line-dec.png' %}" alt="">
+        </div>
+    </section>
 
 {% for yangi in searchs %}
 
+    <br>
+    <br>
+    <br>
+    <br>
     <div class="container">
         <a href="{% url 'blog-detail' yangi.id %}">
             <h3><b>{{ yangi.title }}</b></h3>
             <img src="{{ yangi.image.url }}" alt="image" style="width: 700px; height: 500px;">
         </a>
-        <b><p>Date: {{ yangi.created_at|date:'d-m-Y H:i' }} | Views: {{ yangi.views }}</p></b>
+        <b><p><i class="fa fa-calendar"></i> Date: {{ yangi.created_at |date:'m.d.y/H:i' }} | Views: {{ yangi.views }}</p></b>
         <hr>
-        <br>
-        <br>
     </div>
 
 {% endfor %}

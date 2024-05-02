@@ -6,10 +6,30 @@
 {% endblock title %}
 
 
+{% block menu %}
+
+        <!-- ***** Logo Start ***** -->
+        <a href="/" class="logo">Food Store <em> Website</em></a>
+        <!-- ***** Logo End ***** -->
+        <!-- ***** Menu Start ***** -->
+        <ul class="nav">
+
+            <li><a href="{% url 'index' %}" >Home</a></li>
+            <li><a href="{% url 'products' %}" >Products</a></li>
+            <li><a href="{% url 'blog' %}" class="active">Blog</a></li>
+            <li><a href="{% url 'about' %}">About Us</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>  
+
+        </ul>        
+        <!-- ***** Menu End ***** -->
+
+{% endblock menu %}
+
+
 {% block content %}
 
 
-    <section class="section section-bg" id="call-to-action" style="background-image: url ({% static 'assets/images/banner-image-1-1920x500.jpg' %}) ">
+    <section class="section section-bg" id="call-to-action" style="background-image: url ('{% static "assets/images/banner-image-1-1920x500.jpg" %}')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 offset-lg-1">
@@ -38,7 +58,7 @@
                                 <h4>{{ deta.title }}</h4>
 
                                 <p>
-                                    <h6><i class="fa fa-calendar"></i> Date: {{ deta.created_at }}</h6>
+                                    <h6><i class="fa fa-calendar"></i> Date: {{ deta.created_at |date:'m.d.y/H:i' }}</h6>
                                     <h6><i class="fa fa-eye"></i> Views: {{ deta.views }}</h6>
                                 </p>
 
@@ -60,7 +80,7 @@
                     <div class="modal-body d-flex align-items-center">
                         <div class="input-group w-200 mx-auto d-flex">
                             <form action="{% url 'search' %}" class="input-group w-800 d-flex" method="GET" >
-                                <input type="text" class="form-control p-4" placeholder="search" aria-describedby="search-icon-1" name="query">
+                                <input type="text" class="form-control p-4" placeholder="search" aria-describedby="search-icon-1" name="q">
                                 <button id="search-icon-1" type="submit" class="input-group-text p-3"><i class="fa fa-search"></i></button>
                             </form>
                         </div>
@@ -75,7 +95,7 @@
                         {% for deta in blok %}
                         <li>
                             <p><a href="{% url 'blog-detail' deta.id %}">{{ deta.title }}</a></p>
-                            <small><i class="fa fa-calendar"></i> {{ deta.created_at }} | <i class="fa fa-eye"> {{ deta.views }}</i></small>
+                            <small><i class="fa fa-calendar"></i> {{ deta.created_at |date:'m.d.y/H:i' }} | <i class="fa fa-eye"> {{ deta.views }}</i></small>
                         </li>
 
                         <li><br></li>

@@ -6,8 +6,27 @@
 {% endblock title %}
 
 
-{% block content %}
+{% block menu %}
+    
+<!-- ***** Logo Start ***** -->
+  <a href="/" class="logo">Food Store <em> Website</em></a>
+  <!-- ***** Logo End ***** -->
+  <!-- ***** Menu Start ***** -->
+  <ul class="nav">
 
+      <li><a href="{% url 'index' %}" >Home</a></li>
+      <li><a href="{% url 'products' %}" >Products</a></li>
+      <li><a href="{% url 'blog' %}" >Blog</a></li>
+      <li><a href="{% url 'about' %}" >About Us</a></li>
+      <li><a href="{% url 'contact' %}" class="active">Contact</a></li>  
+
+  </ul>        
+<!-- ***** Menu End ***** -->
+  
+{% endblock menu %}
+
+
+{% block content %}
 
 
   <section class="section section-bg" id="call-to-action" style="background-image: url ('{% static "assets/images/banner-image-1-1920x500.jpg" %}') ">
@@ -81,7 +100,7 @@
                   </div>
               </div>
               <div class="col-lg-6 col-md-6 col-xs-12">
-                  <div class="contact-form section-bg" style="background-image: url ({% static 'sassets/images/contact-1-720x480.jpg' %})">
+                  <div class="contact-form section-bg" style="background-image: url ('{% static "sassets/images/contact-1-720x480.jpg" %}')">
                       <form id="contact" action="" method="POST">
                         {% csrf_token %}
                         <div class="row">
