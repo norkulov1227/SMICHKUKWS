@@ -53,89 +53,40 @@
                     <div class="contact-form">
                         <form id="contact" action="" method="post">
                            <div class="row">
-                                <div class="col-sm-6 col-xs-12">
-                                     <label>Title:</label>
-                                     <select data-msg-required="This field is required.">
-                                          <option value="">-- Choose --</option>
-                                          <option value="dr">Dr.</option>
-                                          <option value="miss">Miss</option>
-                                          <option value="mr">Mr.</option>
-                                          <option value="mrs">Mrs.</option>
-                                          <option value="ms">Ms.</option>
-                                          <option value="other">Other</option>
-                                          <option value="prof">Prof.</option>
-                                          <option value="rev">Rev.</option>
-                                     </select>
-                                </div>
-                                <div class="col-sm-6 col-xs-12">
-                                     <label>Name:</label>
-                                     <input type="text">
-                                </div>
-                           </div>
-                           <div class="row">
-                                <div class="col-sm-6 col-xs-12">
-                                     <label>Email:</label>
-                                     <input type="text">
-                                </div>
-                                <div class="col-sm-6 col-xs-12">
-                                     <label>Phone:</label>
-                                     <input type="text">
-                                </div>
-                           </div>
-                           <div class="row">
-                                <div class="col-sm-6 col-xs-12">
-                                     <label>Address 1:</label>
-                                     <input type="text">
-                                </div>
-                                <div class="col-sm-6 col-xs-12">
-                                     <label>Address 2:</label>
-                                     <input type="text">
-                                </div>
-                           </div>
-                           <div class="row">
-                                <div class="col-sm-6 col-xs-12">
-                                     <label>City:</label>
-                                     <input type="text">
-                                </div>
-                                <div class="col-sm-6 col-xs-12">
-                                     <label>State:</label>
-                                     <input type="text">
-                                </div>
-                           </div>
-                           <div class="row">
-                                <div class="col-sm-6 col-xs-12">
-                                     <label>Zip:</label>
-                                     <input type="text">
-                                </div>
-                                <div class="col-sm-6 col-xs-12">
-                                     <label>Country:</label>
-                                     <select>
-                                          <option value="">-- Choose --</option>
-                                          <option value="">-- Choose --</option>
-                                          <option value="">-- Choose --</option>
-                                          <option value="">-- Choose --</option>
-                                     </select>
-                                </div>
-                           </div>
+                                
+                            <div class="col-sm-6 col-xs-12">
+                                    <label>Name:</label>
+                                    {{ form.name }}
 
+                                </div>
+                                <div class="col-sm-6 col-xs-12">
+                                    <label>Email:</label>
+                                    {{ form.email }}
+                               </div>
+                           </div>
+                           <div class="row">
+                                
+                            <div class="col-sm-6 col-xs-12">
+                                    <label>Phone:</label>
+                                    {{ form.phone }}
+                                </div>
+                                <div class="col-sm-6 col-xs-12">
+                                    <label>Address:</label>
+                                    {{ form.address }}
+                               </div>
+                           </div>
+                           
                            <div class="row">
                                 <div class="col-sm-6 col-xs-12">
-                                     <label>Payment method</label>
-                                     
-                                     <select>
-                                          <option value="">-- Choose --</option>
-                                          <option value="bank">Bank account</option>
-                                          <option value="cash">Cash</option>
-                                          <option value="paypal">PayPal</option>
-                                     </select>
+                                    <label>District:</label>
+                                    {{ form.district }}
                                 </div>
-
                                 <div class="col-sm-6 col-xs-12">
-                                     <label>Captcha</label>
-                                     <input type="text">
-                                </div>
-                            </div>  
-                            
+                                    <label>Payment:</label>
+                                    {{ form.payment }}
+                               </div>
+                           </div>
+                           
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="main-button">
@@ -144,7 +95,7 @@
                                         </div>
 
                                         <div class="float-right">
-                                            <a href="#">Finish</a>
+                                            <button type="submit">Submit</button>
                                         </div>
                                     </div>
                                 </div>
@@ -164,7 +115,7 @@
                             </div>
 
                             <div class="col-6">
-                                <h5 class="text-right">$ 128.00</h5>
+                                <h5 class="text-right">{{ order.product.price }}</h5>
                             </div>
                          </div>
                       </li>
@@ -176,7 +127,7 @@
                             </div>
 
                             <div class="col-6">
-                                <h5 class="text-right">$ 0.00</h5>
+                                <h5 class="text-right">{{ order.quantity }}</h5>
                             </div>
                          </div>
                       </li>

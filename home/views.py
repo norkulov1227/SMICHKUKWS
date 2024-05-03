@@ -2,8 +2,9 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View
 
 from django.contrib import messages
-from .models import Product, Contact, Blog, About, TestModel
+from .models import Product, Contact, Blog, About, TestModel, Order
 from django.db.models import Q
+from .forms import OrderForm
 
 from .models import Product, About
 from django.core.paginator import Paginator
@@ -156,9 +157,12 @@ class SharhlarView(View):
 
 class CheckoutView(View):
     def get(self, request, uuid):
-        product=Product.objects.filter(is_active = True, id=uuid).first()
-        context= {
-            'product':product,
+        order = Order.objects.filter(id=uuid).first()
+        form = OrderForm()
+
+        context = {
+            'order': order,
+            'form': form
         }
 
         return render(request, 'checkout.html', context)
