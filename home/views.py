@@ -4,6 +4,7 @@ from django.views import View
 from django.contrib import messages
 from .models import Product, Contact, Blog, About, TestModel, Order
 from django.db.models import Q
+from .forms import OrderForm
 
 from .models import Product, About
 from django.core.paginator import Paginator
@@ -167,8 +168,18 @@ class SharhlarView(View):
 
 class CheckoutView(View):
     def get(self, request, uuid):
+        order = Order.objects.filter(id=uuid).first()
+        form = OrderForm()
 
-      
+        context = {
+            'order': order,
+            'form': form
+        }
+
+        context = {
+            'order': order,
+            'form': form
+        }
         return render(request, 'checkout.html', context)
 
     def post(self, request, uuid):
