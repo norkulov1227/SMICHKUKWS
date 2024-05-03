@@ -29,7 +29,7 @@
 {% block content %}
 
 
-    <section class="section section-bg" id="call-to-action" style="background-image: url ({% static 'assets/images/banner-image-1-1920x500.jpg' %}) ">
+    <section class="section section-bg" id="call-to-action" style="background-image: url({% static 'assets/images/banner-image-1-1920x500.jpg' %}) ">
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 offset-lg-1">
@@ -51,8 +51,11 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="contact-form">
-                        <form id="contact" action="" method="post">
+                        <form id="contact" action="" method="POST">
+                            {% csrf_token %}
+
                            <div class="row">
+<<<<<<< HEAD
                                 
                             <div class="col-sm-6 col-xs-12">
                                     <label>Name:</label>
@@ -87,15 +90,56 @@
                                </div>
                            </div>
                            
+=======
+
+                                <div class="col-sm-6 col-xs-12">
+                                     <label>Name:</label>
+                                    {{ form.name }}
+                                </div>
+                                <div class="col-sm-6 col-xs-12">
+                                     <label>Email:</label>
+                                      {{ form.email }}
+                                </div>
+                           </div>
+                           <div class="row">
+
+                                <div class="col-sm-6 col-xs-12">
+                                     <label>Phone:</label>
+                                      {{ form.phone }}
+                                </div>
+                                <div class="col-sm-6 col-xs-12">
+                                     <label>Address:</label>
+                                      {{ form.address }}
+                                </div>
+                           </div>
+                           <div class="row">
+
+                                 <div class="col-sm-6 col-xs-12">
+                                     <label>District:</label>
+                                      {{ form.district }}
+
+                                </div>
+                                <div class="col-sm-6 col-xs-12">
+                                     <label>Payment:</label>
+                                    {{ form.payment }}
+                                </div>
+                           </div>
+
+                            
+>>>>>>> ef72134baa270a2b0a06d1d92d996e14e6d57652
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="main-button">
                                         <div class="float-left">
-                                            <a href="#">Back</a>
+                                            <a href="{% url 'detail' order.product.id %}">Back</a>
                                         </div>
 
                                         <div class="float-right">
+<<<<<<< HEAD
                                             <button type="submit">Submit</button>
+=======
+                                           <button type="submit"> Submit </button>
+>>>>>>> ef72134baa270a2b0a06d1d92d996e14e6d57652
                                         </div>
                                     </div>
                                 </div>
@@ -108,25 +152,44 @@
 
                 <div class="col-md-4">
                     <ul class="list-group list-group-no-border">
-                      <li class="list-group-item" style="margin:0 0 -1px">
+                     
+                        {% if order.product.percentage %}
+                             <li class="list-group-item" style="margin:0 0 -1px">
                          <div class="row">
                             <div class="col-6">
-                                <strong>Sub-total</strong>
+                                <strong>Old Price</strong>
                             </div>
 
                             <div class="col-6">
+<<<<<<< HEAD
                                 <h5 class="text-right">{{ order.product.price }}</h5>
+=======
+                                <h5 class="text-right"><del>{{ order.product.price }} so'm</del></h5>
+                            </div>
+                         </div>
+                     
+                        {% endif %}
+                    </li>
+                        <li class="list-group-item" style="margin:0 0 -1px">
+                         <div class="row">
+                            <div class="col-6">
+                                <strong>New Price</strong>
+                            </div>
+
+                            <div class="col-6">
+                                <h5 class="text-right">{{ order.product.get_new_price }} so'm</h5>
+>>>>>>> ef72134baa270a2b0a06d1d92d996e14e6d57652
                             </div>
                          </div>
                       </li>
-
                       <li class="list-group-item" style="margin:0 0 -1px">
                          <div class="row">
                             <div class="col-6">
-                                <strong>Extra</strong>
+                                <strong>Quantity</strong>
                             </div>
 
                             <div class="col-6">
+<<<<<<< HEAD
                                 <h5 class="text-right">{{ order.quantity }}</h5>
                             </div>
                          </div>
@@ -140,6 +203,9 @@
 
                             <div class="col-6">
                                 <h5 class="text-right">$ 10.00</h5>
+=======
+                                <h5 class="text-right">{{ order.quantity }} porsiya</h5>
+>>>>>>> ef72134baa270a2b0a06d1d92d996e14e6d57652
                             </div>
                          </div>
                       </li>
@@ -151,22 +217,12 @@
                             </div>
 
                             <div class="col-6">
-                                <h4 class="text-right">$ 138.00</h4>
+                                <h4 class="text-right">{{ order.get_all_price }} so'm</h4>
                             </div>
                          </div>
                       </li>
 
-                      <li class="list-group-item" style="margin:0 0 -1px">
-                         <div class="row">
-                            <div class="col-6">
-                                <strong>Deposit</strong>
-                            </div>
-
-                            <div class="col-6">
-                                <h5 class="text-right">$ 10.00</h5>
-                            </div>
-                         </div>
-                      </li>
+                      
                     </ul>
 
                     <br>

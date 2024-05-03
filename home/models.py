@@ -70,8 +70,8 @@ class Product(BaseModel):
      @property
      def get_new_price(self):
           if not self.percentage:
-               return self.price
-          return self.price * (100 - self.percentage)/100
+               return round(self.price, 2)
+          return round(self.price * (100 - self.percentage)/100, 2)
 
      
 
@@ -98,10 +98,9 @@ class Order(BaseModel):
 
      @property
      def get_all_price(self):
-          result = self.product.get_new_price() * self.quantity
+          result = self.product.get_new_price * self.quantity
+          print(result)
           return result
-
-
 
      def __str__(self):
           return str(self.name)

@@ -94,7 +94,9 @@
 
             <div class="col-md-4">
               <div class="contact-form">
-                <form action="#" id="contact">
+                  
+                <form  id="contact" method="POST">
+                    {% csrf_token %}
                   <div class="form-group">
                     <p>  {{ product.description }}  </p>
                   </div>
@@ -102,15 +104,15 @@
                   <div class="row">
                     <div class="col-md-6">
                       <label>Quantity</label>
-
-                      <input type="text" placeholder="1">
+                      <input type="text" name="quantity", value=1>
                     </div>
                   </div>
                   
                   <div class="main-button">
-                      <a href="{% url 'checkout' product.id %}">Add to cart</a>
+                      <button type="submit"> Add to Cart</button>
                   </div>
                 </form>
+                  
               </div>
 
               <br>
