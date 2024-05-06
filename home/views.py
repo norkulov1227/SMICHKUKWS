@@ -42,6 +42,7 @@ class ContactView(View):
 
         contact.save()
 
+        messages.success(request, 'Malumotlaringiz yuborildi.')
         return render(request, 'contact.html')
 
 
@@ -166,6 +167,7 @@ class SharhlarView(View):
 
         return render(request, 'testimonials.html', context) 
 
+
 class CheckoutView(View):
     def get(self, request, uuid):
         order = Order.objects.filter(id=uuid).first()
@@ -190,7 +192,8 @@ class CheckoutView(View):
             order.status = True
             order.save()
             print("saqlandi")
-
+            messages.success(request, 'Zakasingiz qabul qilindi.')
             return redirect('index')
+        messages.warning(request, 'Nimadir xato ketdi.')
         return redirect('checkout', uuid=order.id)
 
