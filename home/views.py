@@ -5,6 +5,8 @@ from django.contrib import messages
 from .models import Product, Contact, Blog, About, TestModel, Order
 from django.db.models import Q
 from .forms import OrderForm
+
+from .models import Product, About
 from django.core.paginator import Paginator
 
 
@@ -40,6 +42,7 @@ class ContactView(View):
 
         contact.save()
 
+        messages.success(request, 'Malumotlaringiz yuborildi.')
         return render(request, 'contact.html')
 
 
@@ -164,10 +167,16 @@ class SharhlarView(View):
 
         return render(request, 'testimonials.html', context) 
 
+
 class CheckoutView(View):
     def get(self, request, uuid):
         order = Order.objects.filter(id=uuid).first()
         form = OrderForm()
+
+        context = {
+            'order': order,
+            'form': form
+        }
 
         context = {
             'order': order,
@@ -183,7 +192,8 @@ class CheckoutView(View):
             order.status = True
             order.save()
             print("saqlandi")
-
+            messages.success(request, 'Zakasingiz qabul qilindi.')
             return redirect('index')
+        messages.warning(request, 'Nimadir xato ketdi.')
         return redirect('checkout', uuid=order.id)
 
