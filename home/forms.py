@@ -46,14 +46,3 @@ class OrderForm(forms.ModelForm):
         if not payment:
             raise forms.ValidationError('Maydonlar bo\' bo\'lmasligi lozim.')
         return payment
-
-    
-    def save(self, commit=True):
-        code_obj = Order()
-        code = code_obj.new_code()
-
-        verify = super().save()
-        verify.code = code
-        verify.save()
-
-        return verify
