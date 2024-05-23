@@ -39,7 +39,6 @@
                         <br>
                         <br>
                         <h2>Our <em>Products</em></h2>
-                        <p>Welcome to our food store, You can find several delicious food with seasonable prices</p>
                     </div>
                 </div>
             </div>
@@ -71,7 +70,7 @@
 
                                 <a href="{% url 'detail' each_product.id %}"><h4>{{ each_product.title }}</h4></a>
 
-                                <p> {{ each_product.description }} </p>
+                                <p> {{ each_product.description|slice:"50" }} </p>
 
                                 <ul class="social-icons">
                                     <li><a href="{% url 'detail' each_product.id %}">+ Order</a></li>
