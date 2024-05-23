@@ -37,7 +37,6 @@
 
           <div class="video-overlay header-text">
                <div class="caption">
-                    <h6>Lorem ipsum dolor sit amet</h6>
                     <h2>Best <em>Food store</em> in town</h2>
                </div>
           </div>
@@ -53,7 +52,7 @@
                          <div class="section-heading">
                               <h2>Our <em>Foods</em></h2>
                               <img src="{% static 'assets/images/line-dec.png' %}" alt="">
-                              <p>Nunc urna sem, laoreet ut metus id, aliquet consequat magna. Sed viverra ipsum dolor, ultricies fermentum massa consequat eu.</p>
+                              <p>Bizning magazinda shirinliklar, tortlar va shunga o'xshash mahsulotlar sotiladi</p>
                          </div>
                     </div>
                </div>
@@ -77,7 +76,7 @@
     
                                     <h4>{{ each_product.title }}</h4>
     
-                                    <p>{{ each_product.description }}</p>
+                                    <p>{{ each_product.description|slice:"50" }}</p>
     
                                     <ul class="social-icons">
                                         <li><a href="{% url 'detail' each_product.id %}">View More</a></li>
@@ -106,16 +105,9 @@
                          <div class="section-heading dark-bg">
                               <h2>Read <em>About Us</em></h2>
                                    <img src="{% static 'assets/images/line-dec.png' %}" alt="">
-                              <p>Nunc urna sem, laoreet ut metus id, aliquet consequat magna. Sed viverra ipsum dolor, ultricies fermentum massa consequat eu.</p>
-                         </div>
-                    </div>
-               </div>
-               <div class="row">
-                    <div class="col-lg-12">
-                         <div class="cta-content text-center">
-                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore deleniti voluptas enim! Provident consectetur id earum ducimus facilis, aspernatur hic, alias, harum rerum velit voluptas, voluptate enim! Eos, sunt, quidem.</p>
-
-                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto nulla quo cum officia laboriosam. Amet tempore, aliquid quia eius commodi, doloremque omnis delectus laudantium dolor reiciendis non nulla! Doloremque maxime quo eum in culpa mollitia similique eius doloribus voluptatem facilis! Voluptatibus, eligendi, illum. Distinctio, non!</p>
+                              <div class="main-button">
+                                   <a href="{% url 'about' %}">About us</a>
+                              </div>
                          </div>
                     </div>
                </div>
@@ -194,7 +186,7 @@
                                              </div>
                                              <div class="right-content">
                                                   <h4>{{ each_sharh.name }}</h4>
-                                                  <p><em>"{{ each_sharh.description|slice:50 }}..."</em></p>
+                                                  <p><em>"{{ each_sharh.description|slice:"70" }}"</em></p>
                                              </div>
                                         </li>
                                         
@@ -212,7 +204,7 @@
                                         </div>
                                         <div class="right-content">
                                              <h4>{{ each_sharh.name }}</h4>
-                                             <p><em>"{{ each_sharh.description }}"</em></p>
+                                             <p><em>"{{ each_sharh.description |slice:"90" }}"</em></p>
                                         </div>
                                    </li>
                               {% endif %}
