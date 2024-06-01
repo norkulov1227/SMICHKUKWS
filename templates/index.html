@@ -9,16 +9,16 @@
 {% block menu %}
 
 <!-- ***** Logo Start ***** -->
-     <a href="/" class="logo">Food Store <em> Website</em></a>
+     <a href="/" class="logo">AGRO-BRAVO<em> WEBSITE</em></a>
      <!-- ***** Logo End ***** -->
      <!-- ***** Menu Start ***** -->
      <ul class="nav">
 
-          <li><a href="{% url 'index' %}" class="active">Home</a></li>
-          <li><a href="{% url 'products' %}">Products</a></li>
-          <li><a href="{% url 'blog' %}">Blog</a></li>
-          <li><a href="{% url 'about' %}">About Us</a></li>
-          <li><a href="{% url 'contact' %}">Contact</a></li>  
+          <li><a href="{% url 'index' %}" class="active">BOSH SAHIFA</a></li>
+          <li><a href="{% url 'products' %}">MAHSULOTLAR</a></li>
+          <li><a href="{% url 'blog' %}">YANGILIKLAR</a></li>
+          <li><a href="{% url 'about' %}">KOMPANIYA</a></li>
+          <li><a href="{% url 'contact' %}">KONTAKT</a></li>  
 
      </ul>        
 <!-- ***** Menu End ***** -->
@@ -32,13 +32,13 @@
      <!-- ***** Main Banner Area Start ***** -->
      <div class="main-banner" id="top">
           <video autoplay muted loop id="bg-video">
-               <source src="{% static 'assets/images/video.mp4' %}" type="video/mp4" />
+               <source src="{% static 'assets/images/agro-video.mp4' %}" type="video/mp4" />
           </video>
 
           <div class="video-overlay header-text">
                <div class="caption">
-                    <h6>Lorem ipsum dolor sit amet</h6>
-                    <h2>Best <em>Food store</em> in town</h2>
+                    <h6>Shahardagi eng yaxshi sut mahsulotlarini qayta ishlovchi korxona</h6>
+                    <h2>agro <em> bravo</em></h2>
                </div>
           </div>
      </div>
@@ -51,9 +51,9 @@
                <div class="row">
                     <div class="col-lg-6 offset-lg-3">
                          <div class="section-heading">
-                              <h2>Our <em>Foods</em></h2>
+                              <h2>bizning <em>mahsulotlar</em></h2>
                               <img src="{% static 'assets/images/line-dec.png' %}" alt="">
-                              <p>Nunc urna sem, laoreet ut metus id, aliquet consequat magna. Sed viverra ipsum dolor, ultricies fermentum massa consequat eu.</p>
+                              <p>Korxonamiz tomonidan ishlab chiqarilgan mahsulotlarni bazilarini shu yerda ko'rishingiz mumkin</p>
                          </div>
                     </div>
                </div>
@@ -80,7 +80,7 @@
                                     <p>{{ each_product.description }}</p>
     
                                     <ul class="social-icons">
-                                        <li><a href="{% url 'detail' each_product.id %}">View More</a></li>
+                                        <li><a href="{% url 'detail' each_product.id %}">Batafsil</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -92,7 +92,7 @@
                <br>
 
                <div class="main-button text-center">
-                    <a href="{% url 'products' %}">View our products</a>
+                    <a href="{% url 'products' %}">Ko'proq mahsulotlarni ko'rish uchun bosing</a>
                </div>
           </div>
      </section>
@@ -104,18 +104,22 @@
                <div class="row">
                     <div class="col-lg-6 offset-lg-3">
                          <div class="section-heading dark-bg">
-                              <h2>Read <em>About Us</em></h2>
+                              <h2>Korxona haqida <em>ma'lumot</em></h2>
                                    <img src="{% static 'assets/images/line-dec.png' %}" alt="">
-                              <p>Nunc urna sem, laoreet ut metus id, aliquet consequat magna. Sed viverra ipsum dolor, ultricies fermentum massa consequat eu.</p>
+                              <p><strong><em>Agro Bravo</em></strong> yangilangan sut mahsulotlari bilan xursand qiladi! 🥛 Har bir <strong><em>Agro Bravo</em></strong> mahsuloti o'ziga xos ta'm va yuqori sifatga ega. Yangilangan qadoqli mahsulotarimiz allaqachon shahardagi do'kon rastalarida, siz ozingiz sevgan sut mahsulotlarini topishingiz mumkin.
+                                   💫 Yangilik, qulaylik va didni o‘zida mujassam etgan mahsulotlarimizning yangi dizayniga baho bering.</p>
                          </div>
                     </div>
                </div>
                <div class="row">
                     <div class="col-lg-12">
                          <div class="cta-content text-center">
-                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore deleniti voluptas enim! Provident consectetur id earum ducimus facilis, aspernatur hic, alias, harum rerum velit voluptas, voluptate enim! Eos, sunt, quidem.</p>
+                              <p>Muzqaymoq - ishlab chiqarish, sotish, Oziq-ovqat mahsulotlari - Yog‘-moy mahsulotlari, Sariq yog‘-ishlab chiqarish, Sut mahsulotlari - ishlab chiqarish, sotish, Yog‘-moy mahsulotlari - sotish, ishlab chiqarish</p>
 
-                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto nulla quo cum officia laboriosam. Amet tempore, aliquid quia eius commodi, doloremque omnis delectus laudantium dolor reiciendis non nulla! Doloremque maxime quo eum in culpa mollitia similique eius doloribus voluptatem facilis! Voluptatibus, eligendi, illum. Distinctio, non!</p>
+                              <p>TOSHKENT SHAHRI BO’YLAB SUT MAHSULOTLARINI BEPUL YETKAZIB BERAMIZ!
+                                   😋 «Agro Bravo»dan yangi va tabiiy sut mahsulotlari to’plamlari bilan o’zingizni va yaqinlaringizni xursand qiling!
+                                   ✅ Biz har qanday xohish va byudjetga mos turli xil to’plamlarni taklif etamiz, shuningdek, Toshkent bo’ylab bepul yetkazib beramiz!
+                                   «Agro Bravo» - siz va sog’ligingiz haqida g’amxo’rlik!</p>
                          </div>
                     </div>
                </div>
@@ -129,9 +133,9 @@
          <div class="row">
              <div class="col-lg-6 offset-lg-3">
                  <div class="section-heading">
-                     <h2>Read our <em>Blog</em></h2>
+                     <h2>BLOGIMIZNI <em>O'QING</em></h2>
                      <img src="{% static 'assets/images/line-dec.png' %}" alt="">
-                     <p>Nunc urna sem, laoreet ut metus id, aliquet consequat magna. Sed viverra ipsum dolor, ultricies fermentum massa consequat eu.</p>
+                     <p>Korxonamizda olib borilayotgan ishlar haqida barcha yangiliklarni BATAFSIL tugamasini bosish orqali ko'rishingiz mumkin</p>
                  </div>
              </div>
          </div>
@@ -141,7 +145,7 @@
                {% for bl in blok %}
                     <li><a href='#tabs-{{ forloop.counter }}'>{{ bl.title }}</a></li>
                {% endfor %}
-               <div class="main-rounded-button"><a href="{% url 'blog' %}">Read More</a></div>
+               <div class="main-rounded-button"><a href="{% url 'blog' %}">BATAFSIL</a></div>
              </ul>
            </div>
            <div class="col-lg-8">
@@ -179,9 +183,9 @@
                <div class="row">
                     <div class="col-lg-6 offset-lg-3">
                          <div class="section-heading">
-                              <h2>Read our <em>Testimonials</em></h2>
+                              <h2>KOMPANIYA HAQIDA <em>FIKRLAR</em></h2>
                               <img src="{% static 'assets/images/line-dec.png' %}" alt="waves">
-                              <p>Bu yerda siz bizning taomlarimizga berilgan mashhur insonlar ta'riflarini ko'rishingiz mumkin</p>
+                              <p>Bu yerda siz bizning mahsulotarimizga berilgan mashhur insonlar ta'riflarini ko'rishingiz mumkin</p>
                          </div>
                     </div>
                     <div class="col-lg-6">
@@ -224,7 +228,7 @@
                <br>
 
                <div class="main-button text-center">
-                    <a href="{% url 'sharhlar' %}">Read More</a>
+                    <a href="{% url 'sharhlar' %}">Batfsil</a>
                </div>
           </div>
      </section>

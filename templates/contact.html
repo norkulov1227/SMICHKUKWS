@@ -9,16 +9,16 @@
 {% block menu %}
     
 <!-- ***** Logo Start ***** -->
-  <a href="/" class="logo">Food Store <em> Website</em></a>
+  <a href="/" class="logo">AGRO-BRAVO<em> WEBSITE</em></a>
   <!-- ***** Logo End ***** -->
   <!-- ***** Menu Start ***** -->
   <ul class="nav">
 
-      <li><a href="{% url 'index' %}" >Home</a></li>
-      <li><a href="{% url 'products' %}" >Products</a></li>
-      <li><a href="{% url 'blog' %}" >Blog</a></li>
-      <li><a href="{% url 'about' %}" >About Us</a></li>
-      <li><a href="{% url 'contact' %}" class="active">Contact</a></li>  
+      <li><a href="{% url 'index' %}" >BOSH SAHIFA</a></li>
+      <li><a href="{% url 'products' %}" >MAHSULOTLAR</a></li>
+      <li><a href="{% url 'blog' %}" >YANGILIKLAR</a></li>
+      <li><a href="{% url 'about' %}" >KOMPANIYA</a></li>
+      <li><a href="{% url 'contact' %}" class="active">KONTAKT</a></li>  
 
   </ul>        
 <!-- ***** Menu End ***** -->
@@ -29,15 +29,16 @@
 {% block content %}
 
 
-  <section class="section section-bg" id="call-to-action" style="background-image: url('{% static "assets/images/banner-image-1-1920x500.jpg" %}') ">
+
+  <section class="section section-bg" id="call-to-action" >
     <div class="container">
       <div class="row">
         <div class="col-lg-10 offset-lg-1">
           <div class="cta-content">
             <br>
             <br>
-            <h2>Feel free to <em>Contact Us</em></h2>
-            <p>Ut consectetur, metus sit amet aliquet placerat, enim est ultricies ligula</p>
+            <h2>Korxona bilan <em> Bog'lanish</em></h2>
+            <p>Sizni qiziqtirgan savol va takliflaringiz bo'lsa biz bog'laning. Biz sizga yordam berishdan mamnunmiz </p>
           </div>
         </div>
       </div>
@@ -50,7 +51,7 @@
           <div class="row text-center">
               <div class="col-lg-6 offset-lg-3">
                   <div class="section-heading">
-                      <h2>contact <em> info</em></h2>
+                      <h2>kontakt <em> ma'lumotlari</em></h2>
                       <img src="{% static 'assets/images/line-dec.png' %}" alt="waves">
                       
                   </div>
@@ -81,7 +82,7 @@
                       <i class="fa fa-map-marker"></i>
                   </div>
 
-                  <h5>Qashqadaryo viloyati, Nishon tumani, Guliston MFY, Yoshlar ko'chasi, 11-UY</h5>
+                  <h5>Yunusobod tumani, Amir Temur shoh ko'chasi 118-uy</h5>
 
                   <br>
               </div>
@@ -96,7 +97,7 @@
           <div class="row">
               <div class="col-lg-6 col-md-6 col-xs-12">
                   <div id="map">
-                    <iframe src="https://maps.google.com/maps?q=Av.+L%C3%BAcio+Costa,+Rio+de+Janeiro+-+RJ,+Brazil&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="600px" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2995.529613676344!2d69.28403887553145!3d41.34084089888199!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8b8a0bfe27d9%3A0x29bcda9dd27c336a!2sTATU!5e0!3m2!1suz!2s!4v1715609760302!5m2!1suz!2s" width="100%" height="600px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                   </div>
               </div>
               <div class="col-lg-6 col-md-6 col-xs-12">
@@ -106,27 +107,27 @@
                         <div class="row">
                           <div class="col-md-6 col-sm-12">
                             <fieldset>
-                              <input name="name" type="text" id="name" placeholder="Your Name*" required="">
+                              <input name="name" type="text" id="name" placeholder="Ismingizni kiriting*" required="">
                             </fieldset>
                           </div>
                           <div class="col-md-6 col-sm-12">
                             <fieldset>
-                              <input name="email" type="text" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your Email*" required="">
+                              <input name="email" type="text" id="email" pattern="[^ @]*@[^ @]*" placeholder="Emailingizni kiriting*" required="">
                             </fieldset>
                           </div>
                           <div class="col-md-12 col-sm-12">
                             <fieldset>
-                              <input name="subject" type="text" id="subject" placeholder="Subject">
+                              <input name="subject" type="text" id="subject" placeholder="Xabar yuborishdan qisqacha maqsad">
                             </fieldset>
                           </div>
                           <div class="col-lg-12">
                             <fieldset>
-                              <textarea name="message" rows="6" id="message" placeholder="Message" required=""></textarea>
+                              <textarea name="message" rows="6" id="message" placeholder="Xabar yozing ..." required=""></textarea>
                             </fieldset>
                           </div>
                           <div class="col-lg-12">
                             <fieldset>
-                              <button type="submit" id="form-submit" class="main-button">Send Message</button>
+                              <button type="submit" id="form-submit" class="main-button">Yuborish</button>
                             </fieldset>
                           </div>
                         </div>

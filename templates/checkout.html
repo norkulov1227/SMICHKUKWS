@@ -9,16 +9,16 @@
 {% block menu %}
 
 <!-- ***** Logo Start ***** -->
-    <a href="/" class="logo">Food Store <em> Website</em></a>
+    <a href="/" class="logo">AGRO-BRAVO<em> WEBSITE</em></a>
     <!-- ***** Logo End ***** -->
     <!-- ***** Menu Start ***** -->
     <ul class="nav">
 
-        <li><a href="{% url 'index' %}" >Home</a></li>
-        <li><a href="{% url 'products' %}">Products</a></li>
-        <li><a href="{% url 'blog' %}">Blog</a></li>
-        <li><a href="{% url 'about' %}">About Us</a></li>
-        <li><a href="{% url 'contact' %}">Contact</a></li>  
+        <li><a href="{% url 'index' %}" >Bosh sahifa</a></li>
+        <li><a href="{% url 'products' %}">Mahsulotlar</a></li>
+        <li><a href="{% url 'blog' %}">Yangiliklar</a></li>
+        <li><a href="{% url 'about' %}">Kompaniya</a></li>
+        <li><a href="{% url 'contact' %}">Kontakt</a></li>  
 
     </ul>        
 <!-- ***** Menu End ***** -->
@@ -29,15 +29,15 @@
 {% block content %}
 
 
-    <section class="section section-bg" id="call-to-action" style="background-image: url({% static 'assets/images/banner-image-1-1920x500.jpg' %}) ">
+    <section class="section section-bg" id="call-to-action" >
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 offset-lg-1">
                     <div class="cta-content">
                         <br>
                         <br>
-                        <h2>Easy <em>Checkout</em></h2>
-                        <p>Ut consectetur, metus sit amet aliquet placerat, enim est ultricies ligula</p>
+                        <h2>Buyurtma <em>berish</em></h2>
+                        <p>Buyurtma berish uchun ma'lumotlaringizni to'g'ri to'ldiring</p>
                     </div>
                 </div>
             </div>
@@ -56,7 +56,7 @@
 
                            <div class="row">
                                 <div class="col-sm-6 col-xs-12">
-                                     <label>Name:</label>
+                                     <label>Ismingiz:</label>
                                     {{ form.name }}
                                 </div>
                                 <div class="col-sm-6 col-xs-12">
@@ -67,23 +67,23 @@
                            <div class="row">
 
                                 <div class="col-sm-6 col-xs-12">
-                                     <label>Phone:</label>
+                                     <label>Telefon:</label>
                                       {{ form.phone }}
                                 </div>
                                 <div class="col-sm-6 col-xs-12">
-                                     <label>Address:</label>
+                                     <label>Manzil:</label>
                                       {{ form.address }}
                                 </div>
                            </div>
                            <div class="row">
 
                                  <div class="col-sm-6 col-xs-12">
-                                     <label>District:</label>
+                                     <label>Viloyat:</label>
                                       {{ form.district }}
 
                                 </div>
                                 <div class="col-sm-6 col-xs-12">
-                                     <label>Payment:</label>
+                                     <label>To'lov turi:</label>
                                     {{ form.payment }}
                                 </div>
                            </div>
@@ -92,11 +92,11 @@
                                 <div class="col-lg-12">
                                     <div class="main-button">
                                         <div class="float-left">
-                                            <a href="{% url 'detail' order.product.id %}">Back</a>
+                                            <a href="{% url 'detail' order.product.id %}">Orqaga</a>
                                         </div>
 
                                         <div class="float-right">
-                                           <button type="submit"> Submit </button>
+                                           <button type="submit"> Buyurtma berish  </button>
                                         </div>
                                     </div>
                                 </div>
@@ -114,10 +114,6 @@
                              <li class="list-group-item" style="margin:0 0 -1px">
                          <div class="row">
                             <div class="col-6">
-                                <strong>Old Price</strong>
-                            </div>
-
-                            <div class="col-6">
                                 <h5 class="text-right"><del>{{ order.product.price }} so'm</del></h5>
                             </div>
                          </div>
@@ -127,7 +123,7 @@
                         <li class="list-group-item" style="margin:0 0 -1px">
                          <div class="row">
                             <div class="col-6">
-                                <strong>New Price</strong>
+                                <strong>Narxi:</strong>
                             </div>
 
                             <div class="col-6">
@@ -138,7 +134,7 @@
                       <li class="list-group-item" style="margin:0 0 -1px">
                          <div class="row">
                             <div class="col-6">
-                                <strong>Quantity</strong>
+                                <strong>Soni:</strong>
                             </div>
 
                             <div class="col-6">
@@ -150,7 +146,7 @@
                       <li class="list-group-item" style="margin:0 0 -1px">
                          <div class="row">
                             <div class="col-6">
-                                <h4><strong>Total</strong></h4>
+                                <h4><strong>Jami:</strong></h4>
                             </div>
 
                             <div class="col-6">

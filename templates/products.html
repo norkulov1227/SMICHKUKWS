@@ -8,16 +8,16 @@
 {% block menu %}
 
 <!-- ***** Logo Start ***** -->
-    <a href="/" class="logo">Food Store <em> Website</em></a>
+    <a href="/" class="logo">AGRO-BRAVO<em> WEBSITE</em></a>
     <!-- ***** Logo End ***** -->
     <!-- ***** Menu Start ***** -->
     <ul class="nav">
 
-        <li><a href="{% url 'index' %}" >Home</a></li>
-        <li><a href="{% url 'products' %}" class="active">Products</a></li>
-        <li><a href="{% url 'blog' %}">Blog</a></li>
-        <li><a href="{% url 'about' %}">About Us</a></li>
-        <li><a href="{% url 'contact' %}">Contact</a></li>  
+        <li><a href="{% url 'index' %}" >BOSH SAHIFA</a></li>
+        <li><a href="{% url 'products' %}" class="active">MAHSULOTLAR</a></li>
+        <li><a href="{% url 'blog' %}">YANGILIKLAR</a></li>
+        <li><a href="{% url 'about' %}">KOMPANIYA</a></li>
+        <li><a href="{% url 'contact' %}">KONTAKT</a></li>  
 
     </ul>        
 <!-- ***** Menu End ***** -->
@@ -30,7 +30,7 @@
 
     <!-- ***** Call to Action Start ***** -->
 
-    <section class="section section-bg" id="call-to-action" style="background-image: url('{% static "assets/images/banner-image-1-1920x500.jpg" %}') ">
+    <section class="section section-bg" id="call-to-action" >
 
         <div class="container">
             <div class="row">
@@ -38,8 +38,8 @@
                     <div class="cta-content">
                         <br>
                         <br>
-                        <h2>Our <em>Products</em></h2>
-                        <p>Welcome to our food store, You can find several delicious food with seasonable prices</p>
+                        <h2>bizning <em>Mahsulotlar</em></h2>
+                        <p>Xush kelibsiz! Sizga yoqgan mahsulotlarimizni xarid qilishingiz mumkin</p>
                     </div>
                 </div>
             </div>
@@ -74,7 +74,7 @@
                                 <p> {{ each_product.description }} </p>
 
                                 <ul class="social-icons">
-                                    <li><a href="{% url 'detail' each_product.id %}">+ Order</a></li>
+                                    <li><a href="{% url 'detail' each_product.id %}">+ Buyurtma qilish</a></li>
                                 </ul>
                             </div>
                         </div>
